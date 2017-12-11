@@ -17,6 +17,8 @@ public class IPUtils {
 
     public static String INTERNET_IP = getIntranetIp();
 
+    public static String PUBLIC_IP = getPublicIP();
+
     private IPUtils(){}
 
     /**
