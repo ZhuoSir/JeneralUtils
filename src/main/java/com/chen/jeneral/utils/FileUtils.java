@@ -28,12 +28,12 @@ public class FileUtils {
     public static String readText(final String pathAndName, String encoding)
             throws Exception {
         if (null == encoding)
-            throw new Exception("参数encoding（字符串格式）不能为null");
+            encoding = "UTF-8";
+        else
+            encoding = encoding.trim();
 
-        encoding = encoding.trim();
-
-        StringBuilder ret    = new StringBuilder();
-        FileInputStream fis    = new FileInputStream(pathAndName);
+        StringBuilder     ret    = new StringBuilder();
+        FileInputStream   fis    = new FileInputStream(pathAndName);
         InputStreamReader isr    = "".equals(encoding) ? new InputStreamReader(fis)
                                                        : new InputStreamReader(fis, encoding);
         BufferedReader reader = new BufferedReader(isr);
@@ -101,7 +101,7 @@ public class FileUtils {
             throws IOException {
         File target = getFile(filePathAndName);
 
-        FileWriter fileWriter = new FileWriter(target, true);
+        FileWriter  fileWriter = new FileWriter(target, true);
         PrintWriter writer     = new PrintWriter(fileWriter);
         writer.print(fileContent);
         writer.close();
@@ -139,7 +139,7 @@ public class FileUtils {
             throws IOException {
         File target = getFile(filePathAndName);
 
-        FileWriter fileWriter = new FileWriter(target, true);
+        FileWriter  fileWriter = new FileWriter(target, true);
         PrintWriter writer     = new PrintWriter(fileWriter);
 
         writer.print(text);
@@ -162,7 +162,7 @@ public class FileUtils {
             throw new Exception("文件不存在，请创建!");
         }
 
-        FileWriter fileWriter = new FileWriter(target, true);
+        FileWriter  fileWriter = new FileWriter(target, true);
         PrintWriter writer     = new PrintWriter(fileWriter);
 
         writer.print(text);

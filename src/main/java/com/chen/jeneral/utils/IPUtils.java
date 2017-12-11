@@ -72,12 +72,6 @@ public class IPUtils {
     public static String getPublicIP() {
         String ip = null;
 
-        try {
-            ip = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
         org.jsoup.nodes.Document doc = null;
         Connection con = null;
         // 连接 http://1212.ip138.com/ic.asp
@@ -86,10 +80,7 @@ public class IPUtils {
         try {
             doc = con.get();
             // 获得包含本机ip的文本串：您的IP是：[xxx.xxx.xxx.xxx] 来自：YY
-            org.jsoup.select.Elements els = doc.body().select("center");
-            for (org.jsoup.nodes.Element el : els) {
-                ip = el.text();
-            }
+            ip = doc.body().getElementsByAttributeValueEnding("align", "center").text();
             // 从文本串过滤出ip，用正则表达式将非数字和.替换成空串""
             ip = ip.replaceAll("[^0-9.]", "");
         } catch (IOException e) {
