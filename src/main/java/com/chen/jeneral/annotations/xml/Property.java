@@ -6,8 +6,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.CLASS)
 @Documented
 @Inherited
-public @interface Element {
+public @interface Property {
 
-    String id() default "";
-
+    String name() default "";
 }
