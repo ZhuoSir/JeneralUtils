@@ -74,14 +74,11 @@ public class IPUtils {
 
         org.jsoup.nodes.Document doc = null;
         Connection con = null;
-        // 连接 http://1212.ip138.com/ic.asp
         con = Jsoup.connect("http://1212.ip138.com/ic.asp").timeout(10000);
 
         try {
             doc = con.get();
-            // 获得包含本机ip的文本串：您的IP是：[xxx.xxx.xxx.xxx] 来自：YY
             ip = doc.body().getElementsByAttributeValueEnding("align", "center").text();
-            // 从文本串过滤出ip，用正则表达式将非数字和.替换成空串""
             ip = ip.replaceAll("[^0-9.]", "");
         } catch (IOException e) {
             e.printStackTrace();
