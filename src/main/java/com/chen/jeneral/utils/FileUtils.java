@@ -6,7 +6,7 @@ import java.io.*;
  *
  * Created by sunny-chen on 17/3/2.
  */
-public class FileUtil {
+public class FileUtils {
 
     /**
      * 读取文本文件内容

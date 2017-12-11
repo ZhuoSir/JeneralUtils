@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * Created by sunny-chen on 17/3/3.
  */
-public class NetUtil {
+public class NetUtils {
 
     /** 连接超时时间*/
     private static final int    DEF_CONN_TIMEOUT = 30000;

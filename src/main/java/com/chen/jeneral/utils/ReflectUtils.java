@@ -8,9 +8,9 @@ import java.lang.reflect.Modifier;
  *
  * Created by sunny on 2017/4/14.
  */
-public class ReflectUtil {
+public class ReflectUtils {
 
-    private ReflectUtil() {}
+    private ReflectUtils() {}
 
     /**
      * 循环向上转型,获取对象的DeclaredField.

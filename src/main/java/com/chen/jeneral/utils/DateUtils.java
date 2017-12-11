@@ -9,9 +9,9 @@ import java.util.Date;
  *
  * Created by sunny-chen on 2017/3/26.
  */
-public class DateUtil {
+public class DateUtils {
 
-    private DateUtil() {}
+    private DateUtils() {}
 
     /**
      * 默认时间格式
@@ -234,7 +234,7 @@ public class DateUtil {
      * @return 结果字符串
      * */
     public static String dateToString(Date date, String pattern) {
-        if (!StringUtil.isNotNullOrEmpty(pattern))
+        if (!StringUtils.isNotNullOrEmpty(pattern))
             pattern = DEFAULT_PATTERN;
 
         return new SimpleDateFormat(pattern).format(date);
