@@ -139,7 +139,7 @@ public class StringUtils {
      * @param secret  秘钥
      * @return 加密后字符串
      */
-    private static String sha256_HMAC(String message, String secret) {
+    public static String sha256_HMAC(String message, String secret) {
         String hash = "";
         try {
             Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
@@ -161,7 +161,7 @@ public class StringUtils {
      * @param b 字节数组
      * @return 字符串
      */
-    private static String byteArrayToHexString(byte[] b) {
+    public static String byteArrayToHexString(byte[] b) {
         StringBuilder hs = new StringBuilder();
         String stmp;
         for (int n = 0; b!=null && n < b.length; n++) {
