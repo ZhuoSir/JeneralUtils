@@ -112,6 +112,28 @@ public class StringUtils {
 
 
     /**
+     * 检测email是否符合格式
+     *
+     * */
+    public boolean checkEmail(String email) {
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+
+    /**
+     * 检测手机号是否符合格式
+     *
+     * */
+    public boolean checkPhoneNumber(String phoneNumber) {
+        Pattern pattern = Pattern.compile("^1[3|4|5|7|8][0-9]{9}$");
+        Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
+    }
+
+
+    /**
      * sha256_HMAC加密
      * @param message 消息
      * @param secret  秘钥
@@ -150,5 +172,3 @@ public class StringUtils {
         return hs.toString().toLowerCase();
     }
 }
-
-
