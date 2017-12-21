@@ -246,4 +246,40 @@ public class DateUtils {
     public static Date strToDate(String str) throws ParseException {
         return new SimpleDateFormat(DEFAULT_PATTERN).parse(str);
     }
+
+
+    /**
+     * 日期调整
+     *
+     * @param date 日期
+     * @param dateDimens 日期维度
+     * @param count 调整数量
+     *
+     *
+     * @return 调整后的日期
+     * */
+    public static Date dateAdjust(Date date, int dateDimens, int count) {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.setTime(date);
+        calendar.add(dateDimens, count);
+        Date ret = calendar.getTime();
+
+        return ret;
+    }
+
+
+    /**
+     * 日期调整
+     *
+     * @param date 日期
+     * @param dateDimens 日期维度
+     * @param count 调整数量
+     * @param pattern 日期字符串格式
+     *
+     * @return 调整后的日期字符串
+     * */
+    public static String dateAdjustToStr(Date date, int dateDimens, int count, String pattern) {
+        return dateToString(dateAdjust(date, dateDimens, count), pattern);
+    }
 }
