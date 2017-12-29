@@ -240,11 +240,20 @@ public class DateUtils {
         return new SimpleDateFormat(pattern).format(date);
     }
 
+
     /**
      * 字符串转日期
      * */
     public static Date strToDate(String str) throws ParseException {
         return new SimpleDateFormat(DEFAULT_PATTERN).parse(str);
+    }
+
+
+    /**
+     * 字符串转日期
+     * */
+    public static Date strToDate(String str, String pattern) throws ParseException {
+        return new SimpleDateFormat(pattern).parse(str);
     }
 
 
