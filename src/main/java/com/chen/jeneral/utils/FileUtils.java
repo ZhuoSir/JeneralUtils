@@ -264,4 +264,22 @@ public class FileUtils {
 
         return total;
     }
+
+
+    public static String getContentFromInputStream(InputStream is) throws IOException {
+        if (null == is) {
+            return null;
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        byte[] buffer       = new byte[1024];
+        int    byteRead;
+        while ((byteRead = is.read(buffer)) != -1) {
+            stringBuilder.append(new String(buffer));
+            buffer = new byte[10];
+        }
+
+        return stringBuilder.toString();
+    }
 }
